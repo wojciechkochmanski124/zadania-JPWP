@@ -3,7 +3,7 @@ modules = ["java-graalvm22.3"]
 expertMode = true
 
 [workflows]
-runButton = "Project"
+runButton = "1"
 
 [[workflows.workflow]]
 name = "Project"
@@ -24,6 +24,15 @@ args = "java Main.java"
 
 [workflows.workflow.metadata]
 outputType = "console"
+
+[[workflows.workflow]]
+name = "1"
+mode = "sequential"
+author = 48590050
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac src/*.java && java -cp src Main"
 
 [nix]
 channel = "stable-25_05"
